@@ -1,0 +1,16 @@
+nav{
+    width: 100vw;
+    height: 7vh;
+    background-color: rgba(0, 0, 0, 0.486);
+    text-align: right;
+    padding-top: 3vh;
+}
+.navButton{
+    margin-top: 3vh;
+    color: white;
+    background-color: transparent;
+    font-size: 1.4vw;
+    border: none;
+    margin-right: 1vw;
+    text-decoration: none ;
+}
