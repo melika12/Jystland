@@ -1,5 +1,6 @@
 <?php
     require('menu.php');
+    require_once('../dbconnect.php')
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +32,6 @@
                         <button style="display: inline;">+</button>
                         <button style="display: inline;">-</button>
                         <input placeholder="5555" style="width: 4vw;"></input>
-                        
                     </td>
                     <td>LOL.png</td>
                     <td>fancy chair</td>
