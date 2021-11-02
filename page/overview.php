@@ -49,7 +49,6 @@
                         <button style="display: inline;">+</button>
                         <button style="display: inline;">-</button>
                         <input placeholder="2897" style="width: 4vw;"></input>
-                        
                     </td>
                     <td>LOL.png</td>
                     <td>fancy chair</td>
@@ -62,6 +61,5 @@
                     <td>757573</td>
                 </tr>
         </div>
-
     </body>
 </html>
