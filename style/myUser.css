@@ -17,27 +17,10 @@ body{
     margin-top: 15vh;
     margin-left: 5vw;
     color: white;
-}
-table{
+}table{
     text-align: left;
     width: 90vw;
 }
-button{
-    background-color: black;
-    color: white;
-    border: none;
-    width: 15vw;
-}
-.newCat{
-    width: 8vw; 
-    height: 5vh;
-    margin-top: 7vh;
-    float: left;
-    margin-left: 5vw;
-    background-color: black;
-    color: white;
-    border: none;
- }
 th{
     border-right: 2px white solid;
     border-bottom: 2px white solid;
