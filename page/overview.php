@@ -1,7 +1,13 @@
 <?php
+    require_once('../dbconnect.php');
     require('menu.php');
+        
+    
+    $sql = "SELECT ID, Name, Amount, Placement, Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber FROM Items";
+    $result = $conn->query($sql);
+
+    $line = "";
 ?>
-<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="../style/overview.css">
@@ -25,42 +31,36 @@
                     <th>Description</th>
                     <th>Serial number</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <button style="display: inline;">+</button>
-                        <button style="display: inline;">-</button>
-                        <input placeholder="5555" style="width: 4vw;"></input>
-                        
-                    </td>
-                    <td>LOL.png</td>
-                    <td>fancy chair</td>
-                    <td>100</td>
-                    <td>Row 1, Shelf 2. Placement 3.</td>
-                    <td>Chair</td>
-                    <td>01/11/21</td>
-                    <td>01/11/21</td>
-                    <td>This chair i soooo fancy that you can't belive it!</td>
-                    <td>757573</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td >
-                        <button style="display: inline;">+</button>
-                        <button style="display: inline;">-</button>
-                        <input placeholder="2897" style="width: 4vw;"></input>
-                        
-                    </td>
-                    <td>LOL.png</td>
-                    <td>fancy chair</td>
-                    <td>100</td>
-                    <td>Row 1, Shelf 2. Placement 3.</td>
-                    <td>Chair</td>
-                    <td>01/11/21</td>
-                    <td>01/11/21</td>
-                    <td>This chair i soooo fancy that you can't belive it!</td>
-                    <td>757573</td>
-                </tr>
+                <?php 
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            $line = "
+                            <tr id=".$row["ID"].">
+                                <td></td>
+                                <td>
+                                    <button style='display: inline;'>+</button>
+                                    <button style='display: inline;'>-</button>
+                                    <input placeholder=". $row["Amount"]." style='width: 4vw;'></input>
+                                    
+                                </td>
+                                <td>" . $row["Image"]. "</td>
+                                <td>" . $row["Name"]. "</td>
+                                <td>". $row["Amount"]."</td>
+                                <td>". $row["Placement"]."</td>
+                                <td>". $row["Category"]."</td>
+                                <td>". $row["CreatedDate"]."</td>
+                                <td>". $row["ModifiedDate"]."</td>
+                                <td>". $row["Description"]."</td>
+                                <td>". $row["Serialnumber"]."</td>
+                            </tr>";
+                            echo $line;
+                        }
+                        } else {
+                        echo "0 results";
+                        }
+                        $conn->close();
+                //echo $line; ?>
             </table>
         </div>
 
