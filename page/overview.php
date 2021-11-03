@@ -70,26 +70,26 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            $line = "
-                            <tr id=".$row["ID"].">
-                                <td></td>
-                                <td>
-                                    <button style='display: inline;'>+</button>
-                                    <button style='display: inline;'>-</button>
-                                    <input placeholder=". $row["Amount"]." style='width: 4vw;'></input>
-                                    
-                                </td>
-                                <td>" . $row["Image"]. "</td>
-                                <td>" . $row["Name"]. "</td>
-                                <td>". $row["Amount"]."</td>
-                                <td>". $row["Placement"]."</td>
-                                <td>". $row["Category"]."</td>
-                                <td>". $row["CreatedDate"]."</td>
-                                <td>". $row["ModifiedDate"]."</td>
-                                <td>". $row["Description"]."</td>
-                                <td>". $row["Serialnumber"]."</td>
-                            </tr>";
-                            echo $line;
+                            ?>
+                            <tr id="<?php echo $row["ID"] ?>" >
+                            <td></td>
+                            <td>
+                                <button style='display: inline;'>+</button>
+                                <button style='display: inline;'>-</button>
+                                <input placeholder="<?php echo $row["Amount"] ?>" style='width: 4vw;'></input>
+                            </td>
+                            <td> <?php echo $row["Image"] ?> </td>
+                                <td> <?php echo $row["Name"] ?> </td>
+                                <td> <?php echo $row["Amount"] ?> </td>
+                                <td> <?php echo $row["Placement"] ?></td>
+                                <td> <?php echo $row["Category"] ?></td>
+                                <td> <?php echo $row["CreatedDate"] ?></td>
+                                <td> <?php echo $row["ModifiedDate"] ?></td>
+                                <td> <?php echo $row["Description"] ?></td>
+                                <td> <?php echo $row["Serialnumber"] ?></td>
+                            </tr>
+                            </td>
+                        <?php
                         }
                         } else {
                         echo "0 results";
