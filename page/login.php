@@ -4,7 +4,7 @@
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: overview.php");
     exit;
-
+}
 //Define variables and and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
@@ -43,7 +43,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($stmt->execute()){
                 //Stores result
-                $stmt->store_resukt();
+                $stmt->store_result();
 
                 //check if username exists, if it does then verify password
                 if($stmt-> num_rows == 1){
@@ -91,6 +91,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <body>
 
         <form action="overview.php" method="post" class="loginForm">
+            <?php 
+            ?>
                 <label for="uname" style="font-size: 3vh;"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required><br>
 
