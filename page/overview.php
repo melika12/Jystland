@@ -11,9 +11,41 @@
 <html>
     <head>
         <link rel="stylesheet" href="../style/overview.css">
+        <script type="text/javascript" src="../components/popup.js"></script>
     </head> 
     <body>
-        <button class="newItem">New Item</button>
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h1>Add new item!</h1>
+                    <form>
+                        <input type="text" placeholder="Name" class="inputPop"></input>
+                        <input type="text" placeholder="Amount" class="inputPop"></input>                    
+                        <br>
+                        <select type="text" placeholder="Placement(dropdown)" class="inputSel">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <select type="text" placeholder="Category (dropdown)" class="inputSel">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <br>
+                        <textarea type="text" placeholder="Description" class="inputPopDescription"></textarea>
+                        <br>
+                        <input type="text" placeholder="Serial number" class="inputPop"></input>
+                        
+                        <input type="submit" value="Save" class="saveBtn"></input>                    
+                    </form>
+                </div>
+        <button class="newItem" id="addBtn">New Item</button>
         <div class="overviewItem">
             <table>
                 <tr>
