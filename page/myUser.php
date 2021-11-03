@@ -4,10 +4,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../style/user.css">
+        <link rel="stylesheet" href="../style/myUser.css">
     </head> 
-    <body>  
-    <button class="newUser">New User</button>    
+    <body>    
         <div class="overviewItem">
             <table>
                 <tr>
@@ -18,7 +17,6 @@
                     <th>Created</th>
                     <th>Modified</th>
                     <th>Edit user</th>
-                    <th>Delete user</th>
                 </tr>
                 <tr>
                     <td>Loke</td>
@@ -28,17 +26,6 @@
                     <td>01/11/21</td>
                     <td>01/11/21</td>
                     <td><button>Edit</button></td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Marcus</td>
-                    <td>Møgunge</td>
-                    <td>****************</td>
-                    <td>No</td>
-                    <td>01/11/21</td>
-                    <td>01/11/21</td>
-                    <td><button>Edit</button></td>
-                    <td><button>Delete</button></td>
                 </tr>
             </table>
         </div>
