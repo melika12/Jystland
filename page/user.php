@@ -1,37 +1,47 @@
 <?php
     require('menu.php');
-    include_once('../dbconnect.php')
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="../style/user.css">
     </head> 
-    <body>
-        <button class="newUtem">New user</button>
-        <div class="overviewUtem">
+    <body>  
+    <button class="newUser">New User</button>    
+        <div class="overviewItem">
             <table>
                 <tr>
                     <th>Name</th>
                     <th>Username</th>
-                    <th>IsAdmin</th>
+                    <th>Password</th>
+                    <th>Admin</th>
                     <th>Created</th>
                     <th>Modified</th>
+                    <th>Edit user</th>
+                    <th>Delete user</th>
                 </tr>
-                    <?php 
-                        $users = "SELECT * FROM Users;";
-                        $result = mysqli_query($conn, $users);
-                        foreach ($result AS $user) {
-                            echo '<tr>';
-                            echo '<td>' . utf8_encode($user['Name']) . '</td>';                    
-                            echo '<td>' . utf8_encode($user['Username']) . '</td>';                    
-                            echo '<td>' . utf8_encode($user['IsAdmin']) . '</td>';                    
-                            echo '<td>' . utf8_encode($user['CreatedDate']) . '</td>';                    
-                            echo '<td>' . utf8_encode($user['ModifiedDate']) . '</td>';       
-                            echo '</tr>';      
-                        } 
-                    ?>
+                <tr>
+                    <td>Loke</td>
+                    <td>Gud#1</td>
+                    <td>**********</td>
+                    <td>Yes</td>
+                    <td>01/11/21</td>
+                    <td>01/11/21</td>
+                    <td><button>Edit</button></td>
+                    <td><button>Delete</button></td>
+                </tr>
+                <tr>
+                    <td>Marcus</td>
+                    <td>Møgunge</td>
+                    <td>****************</td>
+                    <td>No</td>
+                    <td>01/11/21</td>
+                    <td>01/11/21</td>
+                    <td><button>Edit</button></td>
+                    <td><button>Delete</button></td>
+                </tr>
             </table>
         </div>
+
     </body>
 </html>

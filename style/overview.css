@@ -17,6 +17,7 @@ body{
     height: auto;
     margin-top: 15vh;
     margin-left: 5vw;
+    margin-bottom: 5vh;
     color: white;
 }
 table{
@@ -37,6 +38,7 @@ td{
     padding-left: 1vw;
     padding-top: 1vw;
     padding-right: 0.5vw;
+    color: white;
 }
 button{
     font-size: 1vw;
