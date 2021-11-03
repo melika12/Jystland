@@ -8,8 +8,8 @@
         <link rel="stylesheet" href="../style/user.css">
     </head> 
     <body>
-        <button class="newUtem">New user</button>
-        <div class="overviewUtem">
+        <button class="newItem">New user</button>
+        <div class="overviewItem">
             <table>
                 <tr>
                     <th>Name</th>
