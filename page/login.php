@@ -53,7 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             //Password is correct so a new session is started
                             session_start();
 
-
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
@@ -71,7 +70,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 else {
                     $login_err = "Brugernavn eller password er forkert.";
                 }
-                
             }
             else
             {
