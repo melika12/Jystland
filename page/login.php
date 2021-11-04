@@ -2,7 +2,6 @@
  
 require('../dbconnect.php');
 if (isset($_POST["uname"]) && isset($_POST["psw"])){
-    echo "lmaoerenenenen";
     $stmt = $conn->prepare("SELECT Username, Password FROM Users WHERE Username = ?");
     $stmt->bind_param("s", $_POST["uname"]);
     $stmt->execute();
@@ -10,6 +9,7 @@ if (isset($_POST["uname"]) && isset($_POST["psw"])){
     $user = $result->fetch_assoc();
     echo $user["Username"];
     echo $user["Password"];
+
     if($_POST["psw"] == $user["Password"]){
         header("location: overview.php");
         Die();
