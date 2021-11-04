@@ -1,25 +1,15 @@
 <?php
     require_once('../dbconnect.php');
 
-    $Name =  $_REQUEST['Name'];
-    $Amount = $_REQUEST['Amount'];
-    $Placement =  $_REQUEST['Placement'];
-    $Category = $_REQUEST['Category'];
-    $Description = $_REQUEST['Description'];
-    $Serial = $_REQUEST['Serial'];
-
     $url = "../page/overview.php";
-    /*function redirect($url){
-        ob_start();
-        header('Location: '.$url);
-        ob_end_flush();
-        die();
-    };*/
-    
-    $sql = "INSERT INTO Items (Name, Amount, Placement, Category, Description, Serialnumber) VALUES ('$Name','$Amount','$Placement','$Category','$Description','$Serial')";
-       
-    
 
+    $stmt = $conn->prepare("INSERT INTO Items (Name, Amount, Placement, Category, Description, Serialnumber) 
+    VALUES (?,?,?,?,?,?)");
+    $stmt->bind_param('siiisi', $_POST['Name'], $_POST['Amount'], $_POST['Placement'], $_POST['Category'], $_POST['Description'], $_POST['Serial']);
+    $stmt->execute();
+    header('Location: '.$url);
+    die();
+ /*
     if(mysqli_query($conn, $sql)){
 
         ob_start();
@@ -33,5 +23,5 @@
     }
         
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($conn);*/
 ?>
