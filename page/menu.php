@@ -12,7 +12,7 @@
             <a class="navButton" href="lowItem.php">Low item's</a>
             <a class="navButton" href="user.php">Users</a>
             <a class="navButton" href="myUser.php">My user</a>
-            <a class="navButton" href="#" style="margin-right: 5vw;">Logout</a>
+            <a class="navButton" href="logout.php" style="margin-right: 5vw;">Logout</a>
         </nav>
     </body>
 </html>
