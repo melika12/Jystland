@@ -2,7 +2,12 @@
     require_once('../dbconnect.php');
     require('menu.php');        
     
-    $sql = "SELECT ID, Name, Amount, Placement, Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber FROM Items";
+    $sql = "SELECT Items.ID, Items.Name, Amount, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name AS Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber 
+    FROM Items 
+    INNER JOIN Category
+    ON Items.Category = Category.ID
+    INNER JOIN Warehouse
+    ON Items.Placement = Warehouse.ID";
     $result = $conn->query($sql);
 
     $line = "";
@@ -81,7 +86,7 @@
                             <td> <?php echo $row["Image"] ?> </td>
                                 <td> <?php echo $row["Name"] ?> </td>
                                 <td> <?php echo $row["Amount"] ?> </td>
-                                <td> <?php echo $row["Placement"] ?></td>
+                                <td> <?php echo "S: {$row["ShelfNr"]} R: {$row["RowNr"]} P: {$row["PlacementNr"]}";?></td>
                                 <td> <?php echo $row["Category"] ?></td>
                                 <td> <?php echo $row["CreatedDate"] ?></td>
                                 <td> <?php echo $row["ModifiedDate"] ?></td>
