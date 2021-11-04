@@ -8,9 +8,15 @@
     ON Items.Category = Category.ID
     INNER JOIN Warehouse
     ON Items.Placement = Warehouse.ID";
+    $sql2 = "SELECT ID, Name FROM Category";
+    $sql3 = "SELECT ID, RowNr, ShelfNr, PlacementNr FROM Warehouse";
     $result = $conn->query($sql);
+    $result2 = $conn->query($sql2);
+    $result3 = $conn->query($sql3);
 
     $line = "";
+    
+    $placement = "";
 ?>
 <html>
     <head>
@@ -27,26 +33,40 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Add new item!</h1>
-                <form>
-                    <input type="text" placeholder="Name" class="inputPop"></input>
-                    <input type="text" placeholder="Amount" class="inputPop"></input>                    
+                <form action="../components/insertItem.php" method="post">
+                    <input type="text" placeholder="Name"  id="Name" name="Name" class="inputPop"></input>
+                    <input type="text" placeholder="Amount" id="Amount" name="Amount" class="inputPop"></input>                    
                     <br>
-                    <select type="text" placeholder="Placement(dropdown)" class="inputSel">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
+                    <select type="text" placeholder="Placement(dropdown)" class="inputSel" id="Placement" name="Placement">
+                        <?php 
+                            if ($result2->num_rows > 0) {
+                                // output data of each row
+                                while($row2 = $result2->fetch_assoc()) {
+                                    $line= "<option value=".$row2["ID"].">".$row2["Name"]."</option>";
+                                    echo $line;
+                                }
+                                } else {
+                                    echo "0 results";
+                                }                        
+                        ?>
                     </select>
-                    <select type="text" placeholder="Category (dropdown)" class="inputSel">
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
+                    <select type="text" placeholder="Category (dropdown)" class="inputSel" id="Category" name="Category">
+                        <?php 
+                            if ($result3->num_rows > 0) {
+                                // output data of each row
+                                while($row3 = $result3->fetch_assoc()) {
+                                    $placement= "<option value=".$row3["ID"].">Row ".$row3["RowNr"]." Shelf ".$row3["ShelfNr"]." Placement ".$row3["PlacementNr"]."</option>";
+                                    echo $placement;
+                                }
+                                } else {
+                                    echo "0 results"; 
+                                }                        
+                        ?>
                     </select>
                     <br>
-                    <textarea type="text" placeholder="Description" class="inputPopDescription"></textarea>
+                    <textarea type="text" placeholder="Description" class="inputPopDescription" id="Description" name="Description"></textarea>
                     <br>
-                    <input type="text" placeholder="Serial number" class="inputPop"></input>
+                    <input type="text" placeholder="Serial number" class="inputPop" id="Serial" name="Serial"></input>
                     
                     <input type="submit" value="Save" class="saveBtn"></input>                    
                 </form>
@@ -70,6 +90,8 @@
                     <th>Modified</th>
                     <th>Description</th>
                     <th>Serial number</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 <?php 
                     if ($result->num_rows > 0) {
@@ -92,8 +114,16 @@
                                 <td> <?php echo $row["ModifiedDate"] ?></td>
                                 <td> <?php echo $row["Description"] ?></td>
                                 <td> <?php echo $row["Serialnumber"] ?></td>
+                                <td>
+                                    <button> Edit <?php?> </button>
+                                </td>
+                                <td>
+                                    <form action="../components/DeleteItem.php" method="post">
+                                        <input type='text' name="itemID" value="<?php echo $row["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
+                                        <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
+                                    </form>
+                                </td>
                             </tr>
-                            </td>
                         <?php
                         }
                         } else {
