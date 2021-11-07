@@ -1,5 +1,5 @@
 <?php
-include('dbconnect.php');
+include_once('../dbconnect.php');
 
 $amountChanged = $_POST["amountChanged"];
 $action = $_POST["action"];
@@ -24,5 +24,5 @@ $stmt->bind_param("isii", $amountChanged, $action, $ID, $UserID);
 $stmt->execute();
 
 $stmt->close();
-header("location: page/".$_POST['previousPage']);
+header("location: ../page/".$_POST['previousPage']);
 ?>
