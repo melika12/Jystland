@@ -58,9 +58,9 @@
                                     $placement= "<option value=".$row3["ID"].">Row ".$row3["RowNr"]." Shelf ".$row3["ShelfNr"]." Placement ".$row3["PlacementNr"]."</option>";
                                     echo $placement;
                                 }
-                                } else {
-                                    echo "0 results"; 
-                                }                        
+                            } else {
+                                echo "0 results"; 
+                            }                        
                         ?>
                     </select>
                     <br>
@@ -101,9 +101,13 @@
                             <tr id="<?php echo $row["ID"] ?>" >
                             <td></td>
                             <td>
-                                <button style='display: inline;'>+</button>
-                                <button style='display: inline;'>-</button>
-                                <input placeholder="<?php echo $row["Amount"] ?>" style='width: 4vw;'></input>
+                                <form action="../components/regulateItems.php" method="POST">
+                                    <button style='display: inline;' name="action" value="Add">+</button>
+                                    <button style='display: inline;' name="action" value="Remove">-</button>
+                                    <input placeholder="<?php echo $row["Amount"] ?>" name="amountChanged" style='width: 4vw;'></input>
+                                    <input type="hidden" name="ID" value="<?php echo $row["ID"] ?>"> </input>
+                                    <input type="hidden" name="previousPage" value="overview.php"> </input>
+                                </form>
                             </td>
                             <td> <?php echo $row["Image"] ?> </td>
                                 <td> <?php echo $row["Name"] ?> </td>
