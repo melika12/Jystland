@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../style/user.css">
         <link rel="stylesheet" href="../style/modal.css">
         <script type="text/javascript" src="../components/user.js"></script>
+        <script type="text/javascript" src="../components/newUser.js"></script>
     </head> 
     <body>
         <!-- The Modal -->
@@ -36,7 +37,24 @@
                 </form>
             </div>
         </div>
-
+        <div id="newUserModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="closeNewUser">&times;</span>
+                <h1>Add new User!</h1>
+                <form action="../components/newUser.php" method="post">
+                    <input type="text" placeholder="Name" id="name" name="name" class="inputPop"></input>
+                    <input type="text" placeholder="User name" id="username" name="username" class="inputPop"></input><br>
+                    <input type="password" placeholder="Password" id="password_1" name="password_1" class="inputPop"></input>
+                    <select class="inputSel" id="admin" name="admin">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select><br>
+                    <input type="submit" value="Save" class="saveBtn" id="reg_user" name="reg_user"></input>                    
+                </form>
+            </div>
+        </div>
+        <button class="newUser" id="addUser" onclick="newUser()">New user</button>
         <div class="overviewItem">
             <table>
                 <tr>
