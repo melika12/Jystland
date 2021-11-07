@@ -62,6 +62,7 @@
                     <th>Username</th>
                     <th>IsAdmin</th>
                     <th>Edit user</th>
+                    <th>Delete user</th>
                 </tr>
                 <?php 
                     foreach ($result AS $user) {
@@ -70,6 +71,14 @@
                         echo '<td>' . utf8_encode($user['Username']) . '</td>';                    
                         echo '<td>',($user['IsAdmin'] ? 'Yes</td>' : 'No</td>');                   
                         echo "<td><button class=\"newItem\" id=\"addBtn".$user['ID']."\" onclick=\"newItem(".$user['ID'].",'".$user['Name']."','".$user['Username']."',".$user['IsAdmin'].")\">Edit</button></td>";
+                        ?>
+                        <td>
+                            <form action="../components/DeleteUser.php" method="post">
+                                <input type='text' name="userID" value="<?php echo $user["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
+                                <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
+                            </form>
+                        </td>
+                        <?php
                         echo '</tr>';      
                     } 
                 ?>
