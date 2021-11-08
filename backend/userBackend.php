@@ -1,5 +1,5 @@
 <?php
-include_once('dbconnect.php');
+include_once('../dbconnect.php');
 
 //updates the user changes on 'My user'
 if(isset($_POST['editMyUser'])) {
@@ -13,7 +13,7 @@ if(isset($_POST['editMyUser'])) {
         $stmt->bind_param("ssi", $_POST['name'], $_POST['uname'], $_POST['ID']);
         $stmt->execute();
     }
-    header("location: page/".$_POST['previousPage']);
+    header("location: ../page/".$_POST['previousPage']);
 }
 
 //updates the user changes on 'Users'
@@ -30,5 +30,5 @@ if(isset($_POST['editUser'])) {
         $stmt->bind_param("ssii", $_POST['name'], $_POST['uname'], $admin, $_POST['ID']);
         $stmt->execute();
     }
-    header("location: page/".$_POST['previousPage']);
+    header("location: ../page/".$_POST['previousPage']);
 }

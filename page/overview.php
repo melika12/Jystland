@@ -78,7 +78,14 @@
             <table>
                 <tr>
                     <th>
-                        <input placeholder="Search"></input>
+
+                    <!-- enten skal hele siden ændres i opsætning, ellers skal der laves en ny side til search funktionen - spørg Loke -->
+                        <form action="../backend/itemBackend.php" method="POST">
+                            <input type="hidden" name="searchItem" value="searchItem"></input>
+                            <input type="hidden" name="previousPage" value="overview.php"></input>
+                            <input id="Search" name="Search" placeholder="Search"></input>
+                            <input type="submit" value="Search" class="saveBtn" style="background-color:grey"></input>      
+                        </form>              
                     </th>
                     <th>Change amount</th>
                     <th>Img</th>

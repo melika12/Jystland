@@ -22,7 +22,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Edit your user</h1>
-                <form action="../userBackend.php" method="POST">
+                <form action="../backend/userBackend.php" method="POST">
                     <input type="hidden" name="editMyUser" value="editMyUser"></input>
                     <input type="hidden" name="previousPage" value="myUser.php"></input>
                     <input type="hidden" name="ID" value="<?php echo $row['ID'] ?>"></input>
