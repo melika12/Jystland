@@ -74,6 +74,26 @@
 
         </div>
         <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h1>Edit item</h1>
+                <form action="../itemBackend.php" method="POST">
+                    <input type="hidden" name="editItem" value="editItem"></input>
+                    <input type="hidden" name="previousPage" value="overview.php"></input>
+                    <input type="hidden" name="id" id="ID"></input>
+                    <input type="text" name="name" id="name" class="inputPop"></input>
+                    <input type="text" name="amount" id="amount" class="inputPop"></input>
+                    <input type="text" name="placement" placeholder="Placement" class="inputPop"></input>
+                    <input type="text" name="category" placeholder="Category" class="inputPop"></input>
+                    <input type="text" name="description" placeholder="Description" class="inputPop"></input>
+                    <input type="text" name="serialnumber" placeholder="Serialnumber" class="inputPop"></input>                   
+                    <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
+                </form>
+            </div>
+        </div>
+
         <div class="overviewItem">
             <table>
                 <tr>
