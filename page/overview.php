@@ -18,10 +18,35 @@
     
     $placement = "";
 ?>
+<script>
+    window.addEventListener('load', (event) => {
+        var modal = document.getElementById("editModal");        
+        if(modal) {
+            var cat = document.getElementById("categorydrop");
+            var pla = document.getElementById("placementdrop");
+
+            <?php foreach ($result2 as $category) { ?>
+                var copt = document.createElement('option');
+                copt.value = <?php echo $category['ID'] ?>;
+                copt.innerHTML = '<?php echo $category['Name'] ?>';
+                cat.appendChild(copt);
+            <?php } ?>
+
+            <?php foreach ($result3 as $place) { ?>
+                var popt = document.createElement('option');
+                popt.value = <?php echo $place['ID'] ?>;
+                popt.innerHTML = '<?php echo "S: " . $place['ShelfNr'] . " R: " . $place['RowNr'] . " P: " . $place['PlacementNr']?>';
+                pla.appendChild(popt);
+        <?php } ?>
+        }
+    });
+
+</script>
 <html>
     <head>
         <link rel="stylesheet" href="../style/overview.css">
         <script type="text/javascript" src="../components/popup.js"></script>
+        <script type="text/javascript" src="../components/item.js"></script>
     </head> 
     <body>
 
@@ -74,6 +99,30 @@
 
         </div>
         <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
+
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="closeEdit">&times;</span>
+                <h1>Edit item</h1>
+                <form action="../itemBackend.php" method="POST">
+                    <input type="hidden" name="editItem" value="editItem"></input>
+                    <input type="hidden" name="previousPage" value="overview.php"></input>
+                    <input type="hidden" name="id" id="id"></input>
+                    <input type="hidden" name="categoryId" id="categoryId"></input>
+                    <input type="hidden" name="placeId" id="placeId"></input>
+                    <input type="text" name="name" id="name" class="inputPop"></input>
+                    <input type="text" name="amount" id="amount" class="inputPop"></input>
+                    <select type="text" placeholder="Category (dropdown)" class="inputSel" id="categorydrop">
+                    </select>
+                    <select type="text" placeholder="Placement (dropdown)" class="inputSel" id="placementdrop">
+                    </select>
+                    <input type="text" name="description" id="description" class="inputPop"></input>
+                    <input type="text" name="serialnumber" id="serialnumber" class="inputPop"></input>                   
+                    <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
+                </form>
+            </div>
+        </div>
+
         <div class="overviewItem">
             <table>
                 <tr>
@@ -119,7 +168,7 @@
                                 <td> <?php echo $row["Description"] ?></td>
                                 <td> <?php echo $row["Serialnumber"] ?></td>
                                 <td>
-                                    <button> Edit <?php?> </button>
+                                    <button class="edit" id="addBtn<?php echo $row['ID']?>" onclick="editItem(<?php echo $row['ID']?>, '<?php echo $row['Name']?>', <?php echo $row['Amount']?>, <?php echo $row['ShelfNr']?>, <?php echo $row['RowNr']?>, <?php echo $row['PlacementNr']?>, '<?php echo $row['Category']?>', '<?php echo $row['Description']?>', <?php echo $row['Serialnumber']?>)">Edit</button>
                                 </td>
                                 <td>
                                     <form action="../components/DeleteItem.php" method="post">
@@ -130,11 +179,11 @@
                             </tr>
                         <?php
                         }
-                        } else {
+                    } else {
                         echo "0 results";
-                        }
-                        $conn->close();
-                //echo $line; ?>
+                    }
+                    $conn->close();
+                ?>
             </table>
         </div>
 
