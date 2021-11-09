@@ -5,7 +5,7 @@ include_once('../dbconnect.php');
 if(isset($_POST['searchItem'])) {
     
     if($_POST['Search'] != "") {
-        session_start();
+        //session_start();
         $stmt = $conn->prepare("SELECT Items.ID, Items.Name, Amount, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name AS Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber 
         FROM Items 
         INNER JOIN Category ON Items.Category = Category.ID

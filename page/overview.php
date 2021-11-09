@@ -1,5 +1,5 @@
 <?php
-    require_once('../dbconnect.php');
+    include_once('../dbconnect.php');
     require('menu.php');        
     
     $sql = "SELECT Items.ID, Items.Name, Amount, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name AS Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber 
@@ -17,7 +17,7 @@
     $line = "";
     
     $placement = "";
-    session_start();
+    //session_start();
     if(isset($_SESSION['searchItem'])) {
         $result = $_SESSION['searchItem'];
     }
