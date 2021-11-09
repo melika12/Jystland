@@ -75,7 +75,7 @@
         </div>
         <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
 
-        <div id="myModal" class="modal">
+        <div id="editModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Edit item</h1>
@@ -135,7 +135,7 @@
                                 <td> <?php echo $row["Description"] ?></td>
                                 <td> <?php echo $row["Serialnumber"] ?></td>
                                 <td>
-                                    <button> Edit <?php?> </button>
+                                <button class="newItem" id="addBtn<?php echo $row['ID']?>" onclick="newItem("<?php echo $user['ID'].",'".$user['Name']."','".$user['Username']."',".$user['IsAdmin'].?>")">Edit</button>;
                                 </td>
                                 <td>
                                     <form action="../components/DeleteItem.php" method="post">
