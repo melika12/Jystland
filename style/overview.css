@@ -43,6 +43,12 @@ td{
 button{
     font-size: 1vw;
 }
+button.edit{
+  background-color: black;
+  color: white;
+  border: none;
+  width: 15vw;
+}
 .newItem{
    width: 6vw; 
    height: 5vh;
