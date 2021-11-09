@@ -17,6 +17,10 @@
     $line = "";
     
     $placement = "";
+    session_start();
+    if(isset($_SESSION['searchItem'])) {
+        $result = $_SESSION['searchItem'];
+    }
 ?>
 <html>
     <head>
