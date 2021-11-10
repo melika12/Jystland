@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require('menu.php');
     include_once('../dbconnect.php');
     
