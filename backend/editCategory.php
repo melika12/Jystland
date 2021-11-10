@@ -3,7 +3,7 @@
 
     $id = $_POST['id'];
     $name = $_POST['name'];
-    $url = "../page/category.php";
+    $url = "../public/category.php";
 
     $sql = "UPDATE Category SET Name='$name' WHERE id=$id";
 

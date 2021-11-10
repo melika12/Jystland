@@ -20,7 +20,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Edit placement</h1>
-                <form action="../placementBackend.php" method="POST">
+                <form action="../backend/placementBackend.php" method="POST">
                     <input type="hidden" name="editPlacement" value="editPlacement"></input>
                     <input type="hidden" name="previousPage" value="placement.php"></input>
                     <input type="hidden" name="ID" id="ID"></input>
@@ -36,7 +36,7 @@
             <div class="modal-content">
                 <span class="closeNewPlacement">&times;</span>
                 <h1>Add new placement</h1>
-                <form action="../placementBackend.php" method="POST">
+                <form action="../backend/placementBackend.php" method="POST">
                     <input type="hidden" name="addPlacement" value="addPlacement"></input>
                     <input type="hidden" name="previousPage" value="placement.php"></input>
                     <input type="hidden" name="ID" id="ID"></input>
@@ -57,26 +57,22 @@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
-                <?php 
-                    foreach ($result AS $placement) {
-                        echo '<tr>';
-                        echo '<td>' . utf8_encode($placement['RowNr']) . '</td>';                    
-                        echo '<td>' . utf8_encode($placement['ShelfNr']) . '</td>';                    
-                        echo '<td>' . utf8_encode($placement['PlacementNr']) . '</td>';                    
-                        echo "<td><button class=\"newItem\" id=\"addBtn".$placement['ID']."\" onclick=\"edit(".$placement['ID'].",'".$placement['RowNr']."','".$placement['ShelfNr']."',".$placement['PlacementNr'].")\">Edit</button></td>";
-                        ?>
-                        <td>
-                            <form action="../placementBackend.php" method="POST">
-                                <input type="hidden" name="deletePlacement" value="deletePlacement"></input>
-                                <input type="hidden" name="previousPage" value="placement.php"></input>
-                                <input type='text' name="placementID" value="<?php echo $placement["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
-                                <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
-                            </form>
-                        </td>
-                        <?php
-                        echo '</tr>';      
-                    } 
-                ?>
+                <?php foreach ($result AS $placement) { ?>
+                <tr>
+                    <td><?php echo $placement['RowNr'] ?></td>                    
+                    <td><?php echo $placement['ShelfNr'] ?></td>                    
+                    <td><?php echo $placement['PlacementNr'] ?></td>                   
+                    <td><button class="newItem" id="addBtn<?php echo $placement['ID']?>" onclick="edit(<?php echo $placement['ID']?>, <?php echo $placement['RowNr']?>, <?php echo $placement['ShelfNr']?>, <?php echo $placement['PlacementNr']?>)">Edit</button></td>
+                    <td>
+                        <form action="../backend/placementBackend.php" method="POST">
+                            <input type="hidden" name="deletePlacement" value="deletePlacement"></input>
+                            <input type="hidden" name="previousPage" value="placement.php"></input>
+                            <input type='text' name="placementID" value="<?php echo $placement["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
+                            <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
+                        </form>
+                    </td>
+                </tr>      
+                <?php } ?>
             </table>
         </div>
     </body>

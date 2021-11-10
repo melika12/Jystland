@@ -1,11 +1,11 @@
 <?php
     require_once('../dbconnect.php');
 
-    $id =  $_REQUEST['userID'];
+    $id =  $_REQUEST['itemID'];
 
-    $url = "../page/user.php";
+    $url = "../public/overview.php";
     
-    $sql = "DELETE FROM Users WHERE id=$id";
+    $sql = "DELETE FROM Items WHERE ID=$id";
        
 
     if(mysqli_query($conn, $sql)){

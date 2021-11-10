@@ -19,6 +19,6 @@ if (isset($_POST['reg_user'])) {
 
   	$query = "INSERT INTO Users (Username, isAdmin, Name, Password) VALUES('$username','$admin', '$name', '$password')";
   	mysqli_query($conn, $query);
-  	header('location: ../page/user.php');
+  	header('location: ../public/user.php');
   }
 }

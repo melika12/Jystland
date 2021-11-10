@@ -1,5 +1,5 @@
 <?php
-    require_once('../dbconnect.php');
+    include_once('../dbconnect.php');
     require('menu.php');        
     
     $sql = "SELECT Items.ID, Items.Name, Amount, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name AS Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber 
@@ -40,11 +40,11 @@
         <?php foreach ($result3 as $place) { ?>
             var popt = document.createElement('option');
             popt.value = <?php echo $place['ID'] ?>;
-            popt.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
+            popt.innerHTML = '<?php echo "R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
 
             var popt2 = document.createElement('option');
             popt2.value = <?php echo $place['ID'] ?>;
-            popt2.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
+            popt2.innerHTML = '<?php echo "R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
             pla.appendChild(popt);
             addPla.appendChild(popt2);
     <?php } ?>
@@ -54,6 +54,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="../style/overview.css">
+        <link rel="stylesheet" href="../style/modal.css">
         <script type="text/javascript" src="../components/popup.js"></script>
         <script type="text/javascript" src="../components/item.js"></script>
     </head> 
@@ -67,7 +68,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h1>Add new item!</h1>
-                <form action="../components/insertItem.php" method="post">
+                <form action="../backend/insertItem.php" method="post">
                     <input type="text" placeholder="Name"  id="Name" name="Name" class="inputPop"></input>
                     <input type="text" placeholder="Amount" id="Amount" name="Amount" class="inputPop"></input>                    
                     <br>
@@ -91,7 +92,7 @@
             <div class="modal-content">
                 <span class="closeEdit">&times;</span>
                 <h1>Edit item</h1>
-                <form action="../itemBackend.php" method="POST">
+                <form action="../backend/itemBackend.php" method="POST">
                     <input type="hidden" name="editItem" value="editItem"></input>
                     <input type="hidden" name="previousPage" value="overview.php"></input>
                     <input type="hidden" name="id" id="id"></input>
@@ -111,10 +112,10 @@
         </div>
 
         <div class="overviewItem">
-            <table>
-                <tr>
+            <table id="myTable">
+                <tr id="tableHeader">
                     <th>
-                        <input placeholder="Search"></input>
+                        <input id="Search" name="Search" placeholder="Search" onkeyup="searchTable()"></input>
                     </th>
                     <th>Change amount</th>
                     <th>Img</th>
@@ -137,7 +138,7 @@
                             <tr id="<?php echo $row["ID"] ?>" >
                             <td></td>
                             <td>
-                                <form action="../components/regulateItems.php" method="POST">
+                                <form action="../backend/regulateItems.php" method="POST">
                                     <button style='display: inline;' name="action" value="Add">+</button>
                                     <button style='display: inline;' name="action" value="Remove">-</button>
                                     <input placeholder="<?php echo $row["Amount"] ?>" name="amountChanged" style='width: 4vw;'></input>
@@ -158,7 +159,7 @@
                                     <button class="edit" id="addBtn<?php echo $row['ID']?>" onclick="editItem(<?php echo $row['ID']?>, '<?php echo $row['Name']?>', <?php echo $row['Amount']?>, <?php echo $row['ShelfNr']?>, <?php echo $row['RowNr']?>, <?php echo $row['PlacementNr']?>, '<?php echo $row['Category']?>', '<?php echo $row['Description']?>', <?php echo $row['Serialnumber']?>)">Edit</button>
                                 </td>
                                 <td>
-                                    <form action="../components/DeleteItem.php" method="post">
+                                    <form action="../backend/DeleteItem.php" method="post">
                                         <input type='text' name="itemID" value="<?php echo $row["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
                                         <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
                                     </form>

@@ -24,5 +24,5 @@ $stmt->bind_param("isii", $amountChanged, $action, $ID, $UserID);
 $stmt->execute();
 
 $stmt->close();
-header("location: ../page/".$_POST['previousPage']);
+header("location: ../public/".$_POST['previousPage']);
 ?>
