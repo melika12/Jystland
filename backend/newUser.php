@@ -17,8 +17,16 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO Users (Username, isAdmin, Name, Password) VALUES('$username','$admin', '$name', '$password')";
-  	mysqli_query($conn, $query);
-  	header('location: ../public/user.php');
+    //checking if the username already exists
+    $users = "SELECT Username FROM Users WHERE Username = '$username';";
+    $result = mysqli_query($conn, $users);
+
+    if($result) {
+      header('location: ../public/user.php');
+    } else {
+      $query = "INSERT INTO Users (Username, IsAdmin, Name, Password) VALUES('$username','$admin', '$name', '$password')";
+      mysqli_query($conn, $query);
+      header('location: ../public/user.php');
+    }      
   }
 }

@@ -27,7 +27,7 @@
                     <input type="hidden" name="ID" id="ID"></input>
                     <input type="text" name="name" id="name" class="inputPop"></input>
                     <input type="text" name="uname" id="uname" class="inputPop"></input>                    
-                    <input type="checkbox" id="admin" name="admin" >
+                    <input type="checkbox" id="admin" name="admin">
                     <label for="admin"> Is admin</label>
                     <br>
                     <input type="password" name="psw1" placeholder="Password" class="inputPop"></input>

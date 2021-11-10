@@ -24,9 +24,9 @@
                     <input type="hidden" name="editPlacement" value="editPlacement"></input>
                     <input type="hidden" name="previousPage" value="placement.php"></input>
                     <input type="hidden" name="ID" id="ID"></input>
-                    <input type="number" name="row" id="row" class="inputPop"></input>
-                    <input type="number" name="shelf" id="shelf" class="inputPop"></input>                    
-                    <input type="number" name="placement" id="placement" class="inputPop"></input>                    
+                    <input type="number" min="1" name="row" id="row" class="inputPop"></input>
+                    <input type="number" min="1" name="shelf" id="shelf" class="inputPop"></input>                    
+                    <input type="number" min="1" name="placement" id="placement" class="inputPop"></input>                    
                     <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
                 </form>
             </div>
@@ -40,9 +40,9 @@
                     <input type="hidden" name="addPlacement" value="addPlacement"></input>
                     <input type="hidden" name="previousPage" value="placement.php"></input>
                     <input type="hidden" name="ID" id="ID"></input>
-                    <input type="number" name="row" id="row" class="inputPop"></input>
-                    <input type="number" name="shelf" id="shelf" class="inputPop"></input>                    
-                    <input type="number" name="placement" id="placement" class="inputPop"></input>                    
+                    <input type="number" min="1" name="row" id="row" class="inputPop"></input>
+                    <input type="number" min="1" name="shelf" id="shelf" class="inputPop"></input>                    
+                    <input type="number" min="1" name="placement" id="placement" class="inputPop"></input>                    
                     <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
                 </form>
             </div>
