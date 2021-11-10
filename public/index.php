@@ -37,12 +37,7 @@ if (isset($_POST["uname"]) && isset($_POST["psw"])){
                         <br>
                         
                         <label for="psw" style="font-size: 3vh;"><b>Password </b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required><br>
-                        <label style="font-size: 2vh;">
-                            Remember me
-                            <input style="margin-top: 5vh;font-size: 5vh; margin-top: 1vh;" type="checkbox" checked="checked" name="remember"> 
-                        </label><br>
-                        <span class="psw" style="font-size: 2vh;">Forgot <a href="#">password?</a></span>
+                        <input type="password" placeholder="Enter Password" name="psw" required><br><br><br>
                         <button type="submit" style="float: right;margin-right: 9vw;margin-top: -3vh;">Login</button><br>
                 </form> 
         </div>
