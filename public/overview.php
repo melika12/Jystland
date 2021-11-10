@@ -66,7 +66,7 @@
                 <h1>Add new item!</h1>
                 <form action="../backend/insertItem.php" method="post">
                     <input type="text" placeholder="Name"  id="Name" name="Name" class="inputPop"></input>
-                    <input type="text" placeholder="Amount" id="Amount" name="Amount" class="inputPop"></input>                    
+                    <input type="number" min="0" placeholder="Amount" id="Amount" name="Amount" class="inputPop"></input>                    
                     <br>
                     <select type="text" placeholder="Placement(dropdown)" class="inputSel" id="Placement" name="Placement">
                     </select>
@@ -75,7 +75,7 @@
                     <br>
                     <textarea type="text" placeholder="Description" class="inputPopDescription" id="Description" name="Description"></textarea>
                     <br>
-                    <input type="text" placeholder="Serial number" class="inputPop" id="Serial" name="Serial"></input>
+                    <input type="number" min="0" placeholder="Serial number" class="inputPop" id="Serial" name="Serial"></input>
                     
                     <input type="submit" value="Save" class="saveBtn"></input>                    
                 </form>
@@ -96,13 +96,13 @@
                     <input type="hidden" name="categoryId" id="categoryId"></input>
                     <input type="hidden" name="placeId" id="placeId"></input>
                     <input type="text" name="name" id="name" class="inputPop"></input>
-                    <input type="text" name="amount" id="amount" class="inputPop"></input>
+                    <input type="number" min="0" name="amount" id="amount" class="inputPop"></input>
                     <select type="text" placeholder="Category (dropdown)" class="inputSel" id="categorydrop">
                     </select>
                     <select type="text" placeholder="Placement (dropdown)" class="inputSel" id="placementdrop">
                     </select>
                     <input type="text" name="description" id="description" class="inputPop"></input>
-                    <input type="text" name="serialnumber" id="serialnumber" class="inputPop"></input>                   
+                    <input type="number" min="0" name="serialnumber" id="serialnumber" class="inputPop"></input>                   
                     <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
                 </form>
             </div>
@@ -144,7 +144,7 @@
                                 <form action="../backend/regulateItems.php" method="POST">
                                     <button style='display: inline;' name="action" value="Add">+</button>
                                     <button style='display: inline;' name="action" value="Remove">-</button>
-                                    <input placeholder="<?php echo $row["Amount"] ?>" name="amountChanged" style='width: 4vw;'></input>
+                                    <input type="number" min="0" name="amountChanged" style='width: 4vw;'></input>
                                     <input type="hidden" name="ID" value="<?php echo $row["ID"] ?>"> </input>
                                     <input type="hidden" name="previousPage" value="overview.php"> </input>
                                 </form>
