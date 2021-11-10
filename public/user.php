@@ -42,7 +42,7 @@
             <div class="modal-content">
                 <span class="closeNewUser">&times;</span>
                 <h1>Add new User!</h1>
-                <form action="../components/newUser.php" method="post">
+                <form action="../backend/newUser.php" method="post">
                     <input type="text" placeholder="Name" id="name" name="name" class="inputPop"></input>
                     <input type="text" placeholder="User name" id="username" name="username" class="inputPop"></input><br>
                     <input type="password" placeholder="Password" id="password_1" name="password_1" class="inputPop"></input>
@@ -73,7 +73,7 @@
                         echo "<td><button class=\"newItem\" id=\"addBtn".$user['ID']."\" onclick=\"newItem(".$user['ID'].",'".$user['Name']."','".$user['Username']."',".$user['IsAdmin'].")\">Edit</button></td>";
                         ?>
                         <td>
-                            <form action="../components/DeleteUser.php" method="post">
+                            <form action="../backend/DeleteUser.php" method="post">
                                 <input type='text' name="userID" value="<?php echo $user["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
                                 <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
                             </form>

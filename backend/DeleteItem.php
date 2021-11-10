@@ -5,7 +5,7 @@
 
     $url = "../public/overview.php";
     
-    $sql = "DELETE FROM Items WHERE id=$id";
+    $sql = "DELETE FROM Items WHERE ID=$id";
        
 
     if(mysqli_query($conn, $sql)){

@@ -1,19 +1,11 @@
 <?php
 include_once('../dbconnect.php');
 
-//updates the user changes on 'My user'
-if(isset($_POST['searchItem'])) {
-    
-    if($_POST['Search'] != "") {
-        $stmt = $conn->prepare("SELECT Items.ID, Items.Name, Amount, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name AS Category, CreatedDate, ModifiedDate, Image, Description, Serialnumber 
-        FROM Items 
-        INNER JOIN Category ON Items.Category = Category.ID
-        INNER JOIN Warehouse ON Items.Placement = Warehouse.ID
-        WHERE (Items.Name, Warehouse.ShelfNr, Warehouse.RowNr, Warehouse.PlacementNr, Category.Name, Serialnumber) LIKE '%?%'");
-        $stmt->bind_param("s", $_POST['Search']);
-        $stmt->execute();
-        $data = $result->fetch_all();
-        $_SESSION['searchItem'] = $data;
-    }
+//updates the item
+if(isset($_POST['editItem'])) {
+    $stmt = $conn->prepare("UPDATE Items SET Name = ?, Amount = ?, Placement = ?, Category = ?, Description = ?, Serialnumber = ? WHERE ID = ?");
+    $stmt->bind_param("siiisii", $_POST['name'], $_POST['amount'], $_POST['placeId'], $_POST['categoryId'], $_POST['description'], $_POST['serialnumber'], $_POST['id']);
+    $stmt->execute();
+
     header("location: ../public/".$_POST['previousPage']);
 }

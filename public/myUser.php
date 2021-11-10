@@ -49,14 +49,13 @@
                 <?php 
                 if ($result->num_rows > 0) {
                     // output data of each row
-                    echo '<td>' . utf8_encode($row['Name']) . '</td>';                    
-                    echo '<td>' . utf8_encode($row['Username']) . '</td>';                    
-                }     
-                ?>
+                    ?>
+                    <td> <?php echo $row['Name'] ?></td>                    
+                    <td> <?php $row['Username'] ?></td>                    
+                <?php } ?>
                     <td><button class="newItem" id="addBtn" onclick="newItem()">Edit</button></td>
                 </tr>
             </table>
         </div>
-
     </body>
 </html>
