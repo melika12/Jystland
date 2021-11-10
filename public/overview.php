@@ -82,8 +82,9 @@
             </div>
 
         </div>
-        <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
-
+        <?php if($_SESSION["Admin"] == true) { ?>
+            <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
+        <?php } ?>
         <div id="editModal" class="modal">
             <div class="modal-content">
                 <span class="closeEdit">&times;</span>
@@ -124,8 +125,11 @@
                         <th data-type="string">Modified</th>
                         <th data-type="string">Description</th>
                         <th data-type="number">Serial number</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+
+                        <?php if($_SESSION["Admin"] == true) { ?>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        <?php } ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -154,15 +158,18 @@
                                 <td> <?php echo $row["ModifiedDate"] ?></td>
                                 <td> <?php echo $row["Description"] ?></td>
                                 <td> <?php echo $row["Serialnumber"] ?></td>
-                                <td>
-                                    <button class="edit" id="addBtn<?php echo $row['ID']?>" onclick="editItem(<?php echo $row['ID']?>, '<?php echo $row['Name']?>', <?php echo $row['Amount']?>, <?php echo $row['ShelfNr']?>, <?php echo $row['RowNr']?>, <?php echo $row['PlacementNr']?>, '<?php echo $row['Category']?>', '<?php echo $row['Description']?>', <?php echo $row['Serialnumber']?>)">Edit</button>
-                                </td>
-                                <td>
-                                    <form action="../backend/DeleteItem.php" method="post">
-                                        <input type='text' name="itemID" value="<?php echo $row["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
-                                        <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
-                                    </form>
-                                </td>
+
+                                <?php if($_SESSION["Admin"] == true) { ?>
+                                    <td>
+                                        <button class="edit" id="addBtn<?php echo $row['ID']?>" onclick="editItem(<?php echo $row['ID']?>, '<?php echo $row['Name']?>', <?php echo $row['Amount']?>, <?php echo $row['ShelfNr']?>, <?php echo $row['RowNr']?>, <?php echo $row['PlacementNr']?>, '<?php echo $row['Category']?>', '<?php echo $row['Description']?>', <?php echo $row['Serialnumber']?>)">Edit</button>
+                                    </td>
+                                    <td>
+                                        <form action="../backend/DeleteItem.php" method="post">
+                                            <input type='text' name="itemID" value="<?php echo $row["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
+                                            <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
+                                        </form>
+                                    </td>
+                                <?php } ?>
                             </tr>
                         <?php
                         }

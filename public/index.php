@@ -3,7 +3,7 @@ session_start();
 require('../dbconnect.php');
 
 if (isset($_POST["uname"]) && isset($_POST["psw"])){
-    $stmt = $conn->prepare("SELECT ID, Username, Password FROM Users WHERE Username = ?");
+    $stmt = $conn->prepare("SELECT ID, Username, Password, IsAdmin FROM Users WHERE Username = ?");
     $stmt->bind_param("s", $_POST["uname"]);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -11,6 +11,8 @@ if (isset($_POST["uname"]) && isset($_POST["psw"])){
     $password = md5($_POST["psw"]);
     if($password == $user["Password"]){
         $_SESSION["userID"] = $user["ID"];
+        $_SESSION["Admin"] = $user["IsAdmin"];
+        
         header("location: overview.php");
         Die();
     }
