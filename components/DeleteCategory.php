@@ -3,7 +3,7 @@
 
     $id =  $_REQUEST['catID'];
 
-    $url = "../page/category.php";
+    $url = "../public/category.php";
     
     $sql = "DELETE FROM Category WHERE id=$id";
        

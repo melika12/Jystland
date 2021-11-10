@@ -13,7 +13,7 @@ if(isset($_POST['editMyUser'])) {
         $stmt->bind_param("ssi", $_POST['name'], $_POST['uname'], $_POST['ID']);
         $stmt->execute();
     }
-    header("location: ../page/".$_POST['previousPage']);
+    header("location: ../public/".$_POST['previousPage']);
 }
 
 //updates the user changes on 'Users'
@@ -30,5 +30,5 @@ if(isset($_POST['editUser'])) {
         $stmt->bind_param("ssii", $_POST['name'], $_POST['uname'], $admin, $_POST['ID']);
         $stmt->execute();
     }
-    header("location: ../page/".$_POST['previousPage']);
+    header("location: ../public/".$_POST['previousPage']);
 }

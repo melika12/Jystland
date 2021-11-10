@@ -15,5 +15,5 @@ if(isset($_POST['searchItem'])) {
         $data = $result->fetch_all();
         $_SESSION['searchItem'] = $data;
     }
-    header("location: ../page/".$_POST['previousPage']);
+    header("location: ../public/".$_POST['previousPage']);
 }

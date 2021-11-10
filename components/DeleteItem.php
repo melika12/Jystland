@@ -3,7 +3,7 @@
 
     $id =  $_REQUEST['itemID'];
 
-    $url = "../page/overview.php";
+    $url = "../public/overview.php";
     
     $sql = "DELETE FROM Items WHERE id=$id";
        

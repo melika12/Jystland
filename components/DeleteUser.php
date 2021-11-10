@@ -3,7 +3,7 @@
 
     $id =  $_REQUEST['userID'];
 
-    $url = "../page/user.php";
+    $url = "../public/user.php";
     
     $sql = "DELETE FROM Users WHERE id=$id";
        

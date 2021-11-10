@@ -131,11 +131,11 @@
                             </tr>
                         <?php
                         }
-                        } else {
-                        echo "0 results";
-                        }
-                        $conn->close();
-                //echo $line; ?>
+                    } else {
+                    echo "0 results";
+                    }
+                    $conn->close();
+                ?>
             </table>
         </div>
 

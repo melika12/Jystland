@@ -1,7 +1,7 @@
 <?php
     require_once('../dbconnect.php');
 
-    $url = "../page/overview.php";
+    $url = "../public/overview.php";
 
     $stmt = $conn->prepare("INSERT INTO Items (Name, Amount, Placement, Category, Description, Serialnumber) 
     VALUES (?,?,?,?,?,?)");
@@ -9,19 +9,4 @@
     $stmt->execute();
     header('Location: '.$url);
     die();
- /*
-    if(mysqli_query($conn, $sql)){
-
-        ob_start();
-        header('Location: '.$url);
-        ob_end_flush();
-        die();
-
-    } else{
-        echo "ERROR: Hush! Sorry $sql. " 
-            . mysqli_error($conn);
-    }
-        
-    // Close connection
-    mysqli_close($conn);*/
 ?>

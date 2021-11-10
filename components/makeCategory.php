@@ -1,7 +1,7 @@
 <?php
     require_once('../dbconnect.php');
     $name = $_POST["Name"];
-    $url = "../page/category.php";
+    $url = "../public/category.php";
 
     $sql = "INSERT INTO Category (Name) VALUES ('$name')";
 
