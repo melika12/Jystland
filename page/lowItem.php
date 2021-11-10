@@ -8,45 +8,9 @@
     ON Items.Category = Category.ID 
     INNER JOIN Warehouse
     ON Items.Placement = Warehouse.ID WHERE Amount < 50";
-    $sql2 = "SELECT ID, Name FROM Category";
-    $sql3 = "SELECT ID, RowNr, ShelfNr, PlacementNr FROM Warehouse";
     $result = $conn->query($sql);
-    $result2 = $conn->query($sql2);
-    $result3 = $conn->query($sql3);
 ?>
-<script>
-    window.addEventListener('load', (event) => {
-        var cat = document.getElementById("categorydrop");
-        var pla = document.getElementById("placementdrop");
-        var addCat = document.getElementById("Category");
-        var addPla = document.getElementById("Placement");
 
-        <?php foreach ($result2 as $category) { ?>
-            var copt = document.createElement('option');
-            copt.value = <?php echo $category['ID'] ?>;
-            copt.innerHTML = '<?php echo $category['Name'] ?>';
-            
-            var copt2 = document.createElement('option');
-            copt2.value = <?php echo $category['ID'] ?>;
-            copt2.innerHTML = '<?php echo $category['Name'] ?>';
-            cat.appendChild(copt);
-            addCat.appendChild(copt2);
-        <?php } ?>
-
-        <?php foreach ($result3 as $place) { ?>
-            var popt = document.createElement('option');
-            popt.value = <?php echo $place['ID'] ?>;
-            popt.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
-
-            var popt2 = document.createElement('option');
-            popt2.value = <?php echo $place['ID'] ?>;
-            popt2.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
-            pla.appendChild(popt);
-            addPla.appendChild(popt2);
-    <?php } ?>
-    });
-
-</script>
 <!DOCTYPE html>
 <html>
     <head>
