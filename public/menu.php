@@ -7,7 +7,7 @@
         <nav>
             <a class="navButton" href="overview.php">Home</a>
             <a class="navButton" href="placement.php">Placements</a>
-            <a class="navButton" href="statistic.php">Statistics</a>
+            <!-- <a class="navButton" href="statistic.php">Statistics</a> -->
             <a class="navButton" href="category.php">Categories</a>
             <a class="navButton" href="lowItem.php">Low items</a>
             <a class="navButton" href="user.php">Users</a>
