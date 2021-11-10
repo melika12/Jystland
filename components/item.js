@@ -1,13 +1,13 @@
 function searchTable() {
     var input, filter, found, table, tr, td, i, j;
     input = document.getElementById("Search");
-    filter = input.value.toUpperCase();
+    filter = input.value.toLowerCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
         for (j = 0; j < td.length; j++) {
-            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            if (td[j].innerHTML.toLowerCase().indexOf(filter) > -1) {
                 found = true;
             }
         }
@@ -15,7 +15,9 @@ function searchTable() {
             tr[i].style.display = "";
             found = false;
         } else {
-            tr[i].style.display = "none";
+            if(tr[i].id != 'tableHeader') {
+                tr[i].style.display = "none";
+            }
         }
     }
 }

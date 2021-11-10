@@ -22,6 +22,7 @@
     <head>
         <link rel="stylesheet" href="../style/overview.css">
         <script type="text/javascript" src="../components/popup.js"></script>
+        <script type="text/javascript" src="../components/item.js"></script>
     </head> 
     <body>
 
@@ -76,7 +77,7 @@
         <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
         <div class="overviewItem">
             <table id="myTable">
-                <tr>
+                <tr id="tableHeader">
                     <th>
                         <input id="Search" name="Search" placeholder="Search" onkeyup="searchTable()"></input>
                     </th>
