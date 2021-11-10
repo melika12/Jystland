@@ -30,8 +30,8 @@
                     <input type="checkbox" id="admin" name="admin" >
                     <label for="admin"> Is admin</label>
                     <br>
-                    <input type="text" name="psw1" placeholder="Password" class="inputPop"></input>
-                    <input type="text" name="psw2" placeholder="Repeat password" class="inputPop"></input>
+                    <input type="password" name="psw1" placeholder="Password" class="inputPop"></input>
+                    <input type="password" name="psw2" placeholder="Repeat password" class="inputPop"></input>
                     <br>                    
                     <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
                 </form>
