@@ -1,10 +1,11 @@
 <?php
+session_start();
 include_once('../dbconnect.php');
 
 $amountChanged = $_POST["amountChanged"];
 $action = $_POST["action"];
 $ID = $_POST["ID"];
-$UserID = 1;
+$UserID = $_SESSION["userID"];
 
 var_dump($ID);
 
