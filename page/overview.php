@@ -148,7 +148,7 @@
                             <td> <?php echo $row["Image"] ?> </td>
                                 <td> <?php echo $row["Name"] ?> </td>
                                 <td> <?php echo $row["Amount"] ?> </td>
-                                <td> <?php echo "S: {$row["ShelfNr"]} R: {$row["RowNr"]} P: {$row["PlacementNr"]}";?></td>
+                                <td> <?php echo "R: {$row["RowNr"]} S: {$row["ShelfNr"]} P: {$row["PlacementNr"]}";?></td>
                                 <td> <?php echo $row["Category"] ?></td>
                                 <td> <?php echo $row["CreatedDate"] ?></td>
                                 <td> <?php echo $row["ModifiedDate"] ?></td>
