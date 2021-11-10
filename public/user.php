@@ -64,24 +64,20 @@
                     <th>Edit user</th>
                     <th>Delete user</th>
                 </tr>
-                <?php 
-                    foreach ($result AS $user) {
-                        echo '<tr>';
-                        echo '<td>' . utf8_encode($user['Name']) . '</td>';                    
-                        echo '<td>' . utf8_encode($user['Username']) . '</td>';                    
-                        echo '<td>',($user['IsAdmin'] ? 'Yes</td>' : 'No</td>');                   
-                        echo "<td><button class=\"newItem\" id=\"addBtn".$user['ID']."\" onclick=\"newItem(".$user['ID'].",'".$user['Name']."','".$user['Username']."',".$user['IsAdmin'].")\">Edit</button></td>";
-                        ?>
+                <?php foreach ($result AS $user) { ?>
+                <tr>
+                    <td><?php echo $user['Name']?></td>                    
+                    <td><?php echo $user['Username']?></td>                   
+                    <td><?php echo ($user['IsAdmin']) ? 'Yes' : 'No'?></td>                   
+                    <?php echo "<td><button class=\"newItem\" id=\"addBtn".$user['ID']."\" onclick=\"newItem(".$user['ID'].",'".$user['Name']."','".$user['Username']."',".$user['IsAdmin'].")\">Edit</button></td>";?>
                         <td>
                             <form action="../backend/DeleteUser.php" method="post">
                                 <input type='text' name="userID" value="<?php echo $user["ID"] ?>" style="visibility: hidden;width:0.vw"></input>
                                 <input type="submit" style="color: red;background-color: black;border: none;" value="X"></input>
                             </form>
                         </td>
-                        <?php
-                        echo '</tr>';      
-                    } 
-                ?>
+                    </tr>     
+                <?php } ?>
             </table>
         </div>
     </body>

@@ -1,11 +1,15 @@
 <?php
+    session_start();
     require('menu.php');
     include_once('../dbconnect.php');
-    //--------------------------------------TO DO------------------------------------------
-    //der skal bruges en session variabel for at fange ID'et fra brugeren, der er logget på
-    $sql = "SELECT ID, Name, Username FROM Users WHERE ID = 1";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    
+    if(isset($_SESSION["userID"])) {
+        $UserID = $_SESSION["userID"];
+        $sql = "SELECT ID, Name, Username FROM Users WHERE ID = $UserID";
+        
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+    }
 ?>
 <!DOCTYPE html>
 <html>
