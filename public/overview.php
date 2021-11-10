@@ -13,10 +13,6 @@
     $result = $conn->query($sql);
     $result2 = $conn->query($sql2);
     $result3 = $conn->query($sql3);
-
-    $line = "";
-    
-    $placement = "";
 ?>
 <script>
     window.addEventListener('load', (event) => {
