@@ -20,25 +20,34 @@
 ?>
 <script>
     window.addEventListener('load', (event) => {
-        var modal = document.getElementById("editModal");        
-        if(modal) {
-            var cat = document.getElementById("categorydrop");
-            var pla = document.getElementById("placementdrop");
+        var cat = document.getElementById("categorydrop");
+        var pla = document.getElementById("placementdrop");
+        var addCat = document.getElementById("Category");
+        var addPla = document.getElementById("Placement");
 
-            <?php foreach ($result2 as $category) { ?>
-                var copt = document.createElement('option');
-                copt.value = <?php echo $category['ID'] ?>;
-                copt.innerHTML = '<?php echo $category['Name'] ?>';
-                cat.appendChild(copt);
-            <?php } ?>
-
-            <?php foreach ($result3 as $place) { ?>
-                var popt = document.createElement('option');
-                popt.value = <?php echo $place['ID'] ?>;
-                popt.innerHTML = '<?php echo "R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
-                pla.appendChild(popt);
+        <?php foreach ($result2 as $category) { ?>
+            var copt = document.createElement('option');
+            copt.value = <?php echo $category['ID'] ?>;
+            copt.innerHTML = '<?php echo $category['Name'] ?>';
+            
+            var copt2 = document.createElement('option');
+            copt2.value = <?php echo $category['ID'] ?>;
+            copt2.innerHTML = '<?php echo $category['Name'] ?>';
+            cat.appendChild(copt);
+            addCat.appendChild(copt2);
         <?php } ?>
-        }
+
+        <?php foreach ($result3 as $place) { ?>
+            var popt = document.createElement('option');
+            popt.value = <?php echo $place['ID'] ?>;
+            popt.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
+
+            var popt2 = document.createElement('option');
+            popt2.value = <?php echo $place['ID'] ?>;
+            popt2.innerHTML = '<?php echo " R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
+            pla.appendChild(popt);
+            addPla.appendChild(popt2);
+    <?php } ?>
     });
 
 </script>
@@ -63,30 +72,8 @@
                     <input type="text" placeholder="Amount" id="Amount" name="Amount" class="inputPop"></input>                    
                     <br>
                     <select type="text" placeholder="Placement(dropdown)" class="inputSel" id="Placement" name="Placement">
-                        <?php 
-                            if ($result2->num_rows > 0) {
-                                // output data of each row
-                                while($row2 = $result2->fetch_assoc()) {
-                                    $line= "<option value=".$row2["ID"].">".$row2["Name"]."</option>";
-                                    echo $line;
-                                }
-                                } else {
-                                    echo "0 results";
-                                }                        
-                        ?>
                     </select>
                     <select type="text" placeholder="Category (dropdown)" class="inputSel" id="Category" name="Category">
-                        <?php 
-                            if ($result3->num_rows > 0) {
-                                // output data of each row
-                                while($row3 = $result3->fetch_assoc()) {
-                                    $placement= "<option value=".$row3["ID"].">Row ".$row3["RowNr"]." Shelf ".$row3["ShelfNr"]." Placement ".$row3["PlacementNr"]."</option>";
-                                    echo $placement;
-                                }
-                            } else {
-                                echo "0 results"; 
-                            }                        
-                        ?>
                     </select>
                     <br>
                     <textarea type="text" placeholder="Description" class="inputPopDescription" id="Description" name="Description"></textarea>
