@@ -113,23 +113,26 @@
 
         <div class="overviewItem">
             <table id="myTable">
-                <tr id="tableHeader">
-                    <th>
-                        <input id="Search" name="Search" placeholder="Search" onkeyup="searchTable()"></input>
-                    </th>
-                    <th>Change amount</th>
-                    <th>Img</th>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Placement</th>
-                    <th>Category</th>
-                    <th>Created</th>
-                    <th>Modified</th>
-                    <th>Description</th>
-                    <th>Serial number</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
+                <thead>
+                    <tr id="tableHeader">
+                        <th>
+                            <input id="Search" name="Search" placeholder="Search" onkeyup="searchTable()"></input>
+                        </th>
+                        <th>Change amount</th>
+                        <th>Img</th>
+                        <th data-type="string">Name</th>
+                        <th data-type="number">Amount</th>
+                        <th data-type="string">Placement</th>
+                        <th data-type="string">Category</th>
+                        <th data-type="string">Created</th>
+                        <th data-type="string">Modified</th>
+                        <th data-type="string">Description</th>
+                        <th data-type="number">Serial number</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php 
                     if ($result->num_rows > 0) {
                         // output data of each row
@@ -172,6 +175,7 @@
                     }
                     $conn->close();
                 ?>
+                </tbody>
             </table>
         </div>
 
