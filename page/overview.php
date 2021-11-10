@@ -35,7 +35,7 @@
             <?php foreach ($result3 as $place) { ?>
                 var popt = document.createElement('option');
                 popt.value = <?php echo $place['ID'] ?>;
-                popt.innerHTML = '<?php echo "S: " . $place['ShelfNr'] . " R: " . $place['RowNr'] . " P: " . $place['PlacementNr']?>';
+                popt.innerHTML = '<?php echo "R: " . $place['RowNr'] . " S: " . $place['ShelfNr'] . " P: " . $place['PlacementNr']?>';
                 pla.appendChild(popt);
         <?php } ?>
         }
@@ -161,7 +161,7 @@
                             <td> <?php echo $row["Image"] ?> </td>
                                 <td> <?php echo $row["Name"] ?> </td>
                                 <td> <?php echo $row["Amount"] ?> </td>
-                                <td> <?php echo "S: {$row["ShelfNr"]} R: {$row["RowNr"]} P: {$row["PlacementNr"]}";?></td>
+                                <td> <?php echo "R: {$row["RowNr"]} S: {$row["ShelfNr"]} P: {$row["PlacementNr"]}";?></td>
                                 <td> <?php echo $row["Category"] ?></td>
                                 <td> <?php echo $row["CreatedDate"] ?></td>
                                 <td> <?php echo $row["ModifiedDate"] ?></td>
