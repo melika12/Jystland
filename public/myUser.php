@@ -29,8 +29,8 @@
                     <input type="text" name="name" value="<?php echo $row['Name'] ?>" class="inputPop"></input>
                     <input type="text" name="uname" value="<?php echo $row['Username'] ?>" class="inputPop"></input>                    
                     <br>
-                    <input type="text" name="psw1" placeholder="Password" class="inputPop"></input>
-                    <input type="text" name="psw2" placeholder="Repeat password" class="inputPop"></input>
+                    <input type="password" name="psw1" placeholder="Password" class="inputPop"></input>
+                    <input type="password" name="psw2" placeholder="Repeat password" class="inputPop"></input>
                     <br>                    
                     <input type="submit" id="save" value="Save" class="saveBtn"></input>                    
                 </form>
@@ -51,7 +51,7 @@
                     // output data of each row
                     ?>
                     <td> <?php echo $row['Name'] ?></td>                    
-                    <td> <?php $row['Username'] ?></td>                    
+                    <td> <?php echo $row['Username'] ?></td>                    
                 <?php } ?>
                     <td><button class="newItem" id="addBtn" onclick="newItem()">Edit</button></td>
                 </tr>
