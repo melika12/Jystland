@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="../style/lowItem.css">
     </head> 
     <body>
-        <h1 class="headline">please note that these item will be sold out soon!</h1>
+        <h1 class="headline">Please note that these item will be sold out soon!</h1>
         <div class="overviewItem">
             <table>
                 <tr>

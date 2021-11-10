@@ -7,8 +7,6 @@ $action = $_POST["action"];
 $ID = $_POST["ID"];
 $UserID = $_SESSION["userID"];
 
-var_dump($ID);
-
 if($action == "Add"){
     $stmt = $conn->prepare("UPDATE Items SET Amount = amount + ? where Id = ?");
     $stmt->bind_param("ii", $amountChanged, $ID);

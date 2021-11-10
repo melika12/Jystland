@@ -8,7 +8,6 @@
     $sql = "UPDATE Category SET Name='$name' WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
-      echo "Record updated successfully";
     } else {
       echo "Error updating record: " . $conn->error;
     }
