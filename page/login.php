@@ -7,10 +7,8 @@ if (isset($_POST["uname"]) && isset($_POST["psw"])){
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-    echo $user["Username"];
-    echo $user["Password"];
-
-    if($_POST["psw"] == $user["Password"]){
+    $password = md5($_POST["psw"]);
+    if($password == $user["Password"]){
         header("location: overview.php");
         Die();
     }
