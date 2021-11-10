@@ -5,8 +5,10 @@ include_once('../dbconnect.php');
 if(isset($_POST['editMyUser'])) {
     
     if($_POST['psw1'] != "" && $_POST['psw1'] == $_POST['psw2']) {
+        $password = md5($_POST['psw1']);//encrypt the password before saving in the database
+
         $stmt = $conn->prepare("UPDATE Users SET Name = ?, Username = ?, Password = ? WHERE ID = ?");
-        $stmt->bind_param("sssi", $_POST['name'], $_POST['uname'], $_POST['psw1'], $_POST['ID']);
+        $stmt->bind_param("sssi", $_POST['name'], $_POST['uname'], $password, $_POST['ID']);
         $stmt->execute();
     } else {
         $stmt = $conn->prepare("UPDATE Users SET Name = ?, Username = ? WHERE ID = ?");
@@ -22,8 +24,10 @@ if(isset($_POST['editUser'])) {
     $admin = ($_POST['admin'] == "on" ? 1 : 0);
 
     if($_POST['psw1'] != "" && $_POST['psw1'] == $_POST['psw2']) {
+        $password = md5($_POST['psw1']);//encrypt the password before saving in the database
+
         $stmt = $conn->prepare("UPDATE Users SET Name = ?, Username = ?, Password = ?, IsAdmin = ? WHERE ID = ?");
-        $stmt->bind_param("sssii", $_POST['name'], $_POST['uname'], $_POST['psw1'], $admin, $_POST['ID']);
+        $stmt->bind_param("sssii", $_POST['name'], $_POST['uname'], $password, $admin, $_POST['ID']);
         $stmt->execute();
     } else {
         $stmt = $conn->prepare("UPDATE Users SET Name = ?, Username = ?, IsAdmin = ? WHERE ID = ?");
