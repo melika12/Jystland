@@ -10,13 +10,12 @@ body{
     text-align: center;
     overflow-x: hidden;
     background-attachment: fixed;
-
 }
 .overviewItem{
     background-color: rgba(0, 0, 0, 0.651);
     width: 90vw;
     height: auto;
-    margin-top: 15vh;
+    margin-top: 21vh;
     margin-left: 5vw;
     color: white;
 }
@@ -51,4 +50,16 @@ button{
    background-color: black;
    color: white;
    border: none;
+}
+.lowAmount{
+    color: rgb(255, 0, 0);
+}
+.headline{
+    margin-top: 10vh;
+    color: rgb(255, 0, 0);
+    float: left;
+    margin-left: 5vw;
+    background-color: rgba(0, 0, 0, 0.651);
+    padding: 0.5vw;
+    font-size: 2.5vw;
 }
