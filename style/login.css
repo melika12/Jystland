@@ -8,6 +8,8 @@ body{
     margin: 0%;
     text-align: center;
     overflow: hidden;
+    background-attachment: fixed;
+
 }
 form {
     border: 3px solid #ffffff8c;
