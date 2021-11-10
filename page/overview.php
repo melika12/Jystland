@@ -17,10 +17,6 @@
     $line = "";
     
     $placement = "";
-    //session_start();
-    if(isset($_SESSION['searchItem'])) {
-        $result = $_SESSION['searchItem'];
-    }
 ?>
 <html>
     <head>
@@ -79,16 +75,10 @@
         </div>
         <button class="newItem" id="addBtn" onclick="newItem()">New Item</button>
         <div class="overviewItem">
-            <table>
+            <table id="myTable">
                 <tr>
                     <th>
-
-                    <!-- enten skal hele siden ændres i opsætning, ellers skal der laves en ny side til search funktionen - spørg Loke -->
-                        <form action="../backend/itemBackend.php" method="POST">
-                            <input type="hidden" name="previousPage" value="overview.php"></input>
-                            <input id="Search" name="Search" placeholder="Search"></input>
-                            <input type="submit" value="Search" class="saveBtn" style="background-color:grey"></input>      
-                        </form>              
+                        <input id="Search" name="Search" placeholder="Search" onkeyup="searchTable()"></input>
                     </th>
                     <th>Change amount</th>
                     <th>Img</th>
