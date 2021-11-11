@@ -7,7 +7,7 @@ $url = "../public/category.php";
 $category = "SELECT Name FROM Category WHERE Name = '$name';";
 $result = mysqli_query($conn, $category);
 
-if($result) {
+if($result->num_rows > 0) {
     header('Location: ' . $url);
 } else {
     $sql = "INSERT INTO Category (Name) VALUES ('$name')";
