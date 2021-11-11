@@ -11,7 +11,7 @@ if(isset($_POST['editMyUser'])) {
     $users = "SELECT Username FROM Users WHERE Username = '$user' AND ID != $userID;";
     $result = mysqli_query($conn, $users);
 
-    if($result) {
+    if($result->num_rows > 0) {
         header("location: ../public/".$_POST['previousPage']);
     } else {  
         if($_POST['psw1'] != "" && $_POST['psw1'] == $_POST['psw2']) {
@@ -46,7 +46,7 @@ if(isset($_POST['editUser'])) {
     $users = "SELECT Username FROM Users WHERE Username = '$user' AND ID != $userID;";
     $result = mysqli_query($conn, $users);
 
-    if($result) {
+    if($result->num_rows > 0) {
         header("location: ../public/".$_POST['previousPage']);
     } else {
         if($_POST['psw1'] != "" && $_POST['psw1'] == $_POST['psw2']) {

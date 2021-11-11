@@ -21,12 +21,13 @@ if (isset($_POST['reg_user'])) {
     $users = "SELECT Username FROM Users WHERE Username = '$username';";
     $result = mysqli_query($conn, $users);
 
-    if($result) {
+    if($result->num_rows > 0) {
       header('location: ../public/user.php');
     } else {
-      $query = "INSERT INTO Users (Username, IsAdmin, Name, Password) VALUES('$username','$admin', '$name', '$password')";
-      mysqli_query($conn, $query);
+      $stmt = $conn->prepare("INSERT INTO Users (Username, IsAdmin, Name, Password) VALUES('$username','$admin', '$name', '$password')");
+      $stmt->bind_param("siss", $username, $admin, $name, $password);
+      $stmt->execute();
       header('location: ../public/user.php');
-    }      
+    }
   }
 }
